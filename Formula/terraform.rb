@@ -8,6 +8,7 @@ class Terraform < Formula
 
   def install
     system "./terraform-install.sh -c"
+    bin.install "./terraform"
   end
 
   test do
