@@ -1,13 +1,13 @@
 class Terraform < Formula
   homepage "https://github.com/robertpeteuil/terraform-installer"
-  url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.0.tar.gz"
-  version "1.3.0"
-  sha256 "3c16ddc5c739d60e50c9eae18ceb62bc2627f5ea6cc5c39a3422898947b27799"
+  url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.1.tar.gz"
+  version "1.3.1"
+  sha256 "5d16e4941c4e3501cb33c75ab98306f5a8432685b86ab1ce8648abd859c2a945"
 
   bottle :unneeded
 
   def install
-    system "./terraform-install.sh -a"
+    system "./terraform-install.sh -c"
   end
 
   test do
