@@ -1,4 +1,4 @@
-class Sysis < Formula
+class Terraform < Formula
   homepage "https://github.com/robertpeteuil/terraform-installer"
   url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.0.tar.gz"
   version "1.3.0"
