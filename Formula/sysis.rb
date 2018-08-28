@@ -8,7 +8,7 @@ class Sysis < Formula
     if File.file?("#{bin}/sysis") then
       system "rm", "#{bin}/sysis"
     end
-    bin.install "sysis"
+    etc.install "sysis"
   end
 
 end
