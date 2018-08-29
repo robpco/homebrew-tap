@@ -1,13 +1,13 @@
 class Terraform < Formula
   homepage "https://github.com/robertpeteuil/tftest"
-  url "https://github.com/robertpeteuil/tftest/archive/v1.0.0.tar.gz"
-  version "1.0.0"
-  sha256 "3d66ab5010e6d7a37138c7530770dc0ca5eb4607932073d94c9df429e352c153"
+  url "https://github.com/robertpeteuil/tftest/archive/v1.0.1.tar.gz"
+  version "0.11.8"
+  sha256 "3b669a0d1c90246f783065e480087634bb7b90758638d70e01a46f5865c9c8f4"
 
   bottle :unneeded
 
   def install
-    system "./terraform-install.sh", "-c"
+    system "./terraform-install.sh", "-c", "-i 0.11.8"
     bin.install "./terraform"
   end
 
