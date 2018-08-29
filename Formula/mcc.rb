@@ -8,7 +8,7 @@ class Mcc < Formula
   sha256 "ec1f0293861960814bd5ec99ee1b9df5c0a7685ea5c3c7c5173248a488784b37"
 
   depends_on :macos
-  depends_on "python"
+  depends_on :python3
 
   bottle do
     root_url "https://iac.sh/brew-bottles"
