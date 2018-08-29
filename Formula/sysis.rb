@@ -13,7 +13,7 @@ class Sysis < Formula
   end
 
   test do
-    output = shell_output("#{bin}/sysos -h 2>&1", 1)
+    output = shell_output("#{bin}/sysis -h", 1)
     assert_match "system", output
   end
 
