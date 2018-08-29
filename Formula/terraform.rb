@@ -1,8 +1,8 @@
 class Terraform < Formula
-  homepage "https://github.com/robertpeteuil/terraform-installer"
-  url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.1.tar.gz"
-  version "1.3.1"
-  sha256 "5d16e4941c4e3501cb33c75ab98306f5a8432685b86ab1ce8648abd859c2a945"
+  homepage "https://github.com/robertpeteuil/iac.sh"
+  url "https://github.com/robertpeteuil/iac.sh/archive/v1.0.0.tar.gz"
+  version "1.0.0"
+  sha256 "284f20520c072d9cdaf35a81fc177b997d037daa75ffa6f522b92a4faa44ec65"
 
   bottle :unneeded
 
