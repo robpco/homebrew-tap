@@ -10,9 +10,10 @@ class Mcc < Formula
   depends_on "python"
 
   bottle do
+    root_url "https://iac.sh/brew-bottles"
     cellar :any
-    sha256 "c0f7de51d02f6ddffe8bd39bfdebb2b1bb79d76883068eb55b7d8342c582566b" => :sierra
-    sha256 "d602cbd517c9c024e7fecfbc7e07c5a7f812f3014889f74631512c392161c9a2" => :high_sierra
+    sha256 "a164b2eff6faa3d70df69bc62b49810ae4b97bb782f91926226715ddecd52ceb" => :sierra
+    sha256 "97cf949a15448280e491766d5ced0e5ebee3ec81fa180e8f069b2ded2d752144" => :high_sierra
   end
 
   resource "apache-libcloud" do
