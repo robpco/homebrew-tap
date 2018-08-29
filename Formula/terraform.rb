@@ -1,8 +1,8 @@
 class Terraform < Formula
-  homepage "https://github.com/robertpeteuil/iac.sh"
-  url "https://github.com/robertpeteuil/iac.sh/archive/v1.0.0.tar.gz"
+  homepage "https://github.com/robertpeteuil/tftest"
+  url "https://github.com/robertpeteuil/tftest/archive/v1.0.0.tar.gz"
   version "1.0.0"
-  sha256 "284f20520c072d9cdaf35a81fc177b997d037daa75ffa6f522b92a4faa44ec65"
+  sha256 "3d66ab5010e6d7a37138c7530770dc0ca5eb4607932073d94c9df429e352c153"
 
   bottle :unneeded
 
