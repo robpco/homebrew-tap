@@ -6,7 +6,7 @@ class Sysis < Formula
   sha256 "fb340a136179f975eac8da095862fa2f6e09373f7ded257e4de7e6fc2e21d8dc"
   version "3.7.6"
 
-  head "https://github.com/robertpeteuil/sysis.git"
+  # head "https://github.com/robertpeteuil/sysis.git"
   
   bottle :unneeded
 
