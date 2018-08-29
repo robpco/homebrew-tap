@@ -1,4 +1,4 @@
-class Terraform < Formula
+class TerraformAT0118 < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
   url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.2.tar.gz"
