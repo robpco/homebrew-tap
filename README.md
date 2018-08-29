@@ -1,17 +1,14 @@
-# Robert Peteuil's custom Homebrew formulas
+# Custom Homebrew formula
 
-## sysis - lightweight system-information utility
-
-### Installing
-
-```bash
-$ brew tap robertpeteuil/tap
-$ brew install sysis
-
-# or
-$ brew install robertpeteuil/tap/sysis
-```
-
-### SYSIS repo and usage documentation
+### sysis - lightweight system-information utility
 
 [github.com/robertpeteuil/sysis](https://github.com/robertpeteuil/sysis)
+
+```bash
+$ brew install robertpeteuil/tap/sysis
+
+# or
+
+$ brew tap robertpeteuil/tap
+$ brew install sysis
+```
