@@ -10,11 +10,6 @@ class Sysis < Formula
   
   bottle :unneeded
 
-  # devel block only executed if the user passes `--devel`
-  # devel do
-  #   url "https://github.com/robertpeteuil/sysis.git", :branch => "develop"
-  # end
-
   def install
     bin.install "./sysis"
   end
