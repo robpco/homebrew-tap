@@ -1,8 +1,9 @@
 class Terraform < Formula
-  homepage "https://github.com/robertpeteuil/tftest"
-  url "https://github.com/robertpeteuil/tftest/archive/v1.0.1.tar.gz"
+  desc "Tool to build, change, and version infrastructure"
+  homepage "https://www.terraform.io/"
+  url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.2.tar.gz"
   version "0.11.8"
-  sha256 "3b669a0d1c90246f783065e480087634bb7b90758638d70e01a46f5865c9c8f4"
+  sha256 "ea374dba5eaf4c078f1f1c01fca9dacba3da7f7daf952ceb249c6b6fc50eb92a"
 
   bottle :unneeded
 
