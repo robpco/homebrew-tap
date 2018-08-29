@@ -9,7 +9,12 @@ class Mcc < Formula
 
   depends_on "python"
 
-  # mcc's real dependancies
+  bottle do
+    cellar :any
+    sha256 "c0f7de51d02f6ddffe8bd39bfdebb2b1bb79d76883068eb55b7d8342c582566b" => :sierra
+    sha256 "d602cbd517c9c024e7fecfbc7e07c5a7f812f3014889f74631512c392161c9a2" => :high_sierra
+  end
+
   resource "apache-libcloud" do
     url "https://files.pythonhosted.org/packages/2a/b9/dbc5ef54d9b5fd5759a483b5cb7404e470ce4dbe7c944416df346cde8ff5/apache-libcloud-2.3.0.tar.gz"
     sha256 "0e2eee3802163bd0605975ed1e284cafc23203919bfa80c0cc5d3cd2543aaf97"
@@ -60,11 +65,6 @@ class Mcc < Formula
     sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
-  # resource "mcc" do
-  #   url "https://files.pythonhosted.org/packages/68/3a/2ab03f0ce01911ca54c0bf74b1316e049cf69ee7ed13e1290eb9bf1252d9/mcc-0.9.8.tar.gz"
-  #   sha256 "194c2173d2e40e03ae9862dd310d666ce72b4f2319310dae2212e4595a2893d4"
-  # end
-
   resource "PrettyTable" do
     url "https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2"
     sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
@@ -95,95 +95,12 @@ class Mcc < Formula
     sha256 "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"
   end
 
-  # installer from https://github.com/Homebrew/homebrew-core/blob/master/Formula/jrnl.rb
   def install
     virtualenv_install_with_resources
   end
-
-  # install for azure-cli
-  # def install
-  #   xy = Language::Python.major_minor_version "python3"
-  #   site_packages = libexec/"lib/python#{xy}/site-packages"
-  #   ENV.prepend_create_path "PYTHONPATH", site_packages
-  #   ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib}"
-  #   ENV.prepend "CFLAGS", "-I#{Formula["openssl"].opt_include}"
-  #   ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include}"
-
-  #   # Get the CLI components we'll install
-  #   components = [
-  #     buildpath/"src/azure-cli",
-  #     buildpath/"src/azure-cli-telemetry",
-  #     buildpath/"src/azure-cli-core",
-  #     buildpath/"src/azure-cli-nspkg",
-  #     buildpath/"src/azure-cli-command_modules-nspkg",
-  #   ]
-  #   components += Pathname.glob(buildpath/"src/command_modules/azure-cli-*/")
-
-  #   # Install dependencies
-  #   # note: Even if in 'resources', don't include 'futures' as not needed for Python3
-  #   # and causes import errors. See https://github.com/agronholm/pythonfutures/issues/41
-  #   deps = resources.map(&:name).to_set - ["futures"]
-  #   deps.each do |r|
-  #     resource(r).stage do
-  #       system "python3", *Language::Python.setup_install_args(libexec)
-  #     end
-  #   end
-    
-  #   # Install CLI
-  #   components.each do |item|
-  #     cd item do
-  #       system "python3", *Language::Python.setup_install_args(libexec)
-  #     end
-  #   end
-
-  #   # This replaces the `import pkg_resources` namespace imports from upstream
-  #   # with empty string as the import is slow and not needed in this environment.
-  #   File.open(site_packages/"azure/__init__.py", "w") {}
-  #   File.open(site_packages/"azure/cli/__init__.py", "w") {}
-  #   File.open(site_packages/"azure/cli/command_modules/__init__.py", "w") {}
-  #   File.open(site_packages/"azure/mgmt/__init__.py", "w") {}
-
-  #   (bin/"az").write <<~EOS
-  #     #!/usr/bin/env bash
-  #     export PYTHONPATH="#{ENV["PYTHONPATH"]}"
-  #     if command -v python#{xy} >/dev/null 2>&1; then
-  #       python#{xy} -m azure.cli \"$@\"
-  #     else
-  #       python3 -m azure.cli \"$@\"
-  #     fi
-  #   EOS
-
-  #   bash_completion.install "az.completion" => "az"
-  # end
-  # # azure-cli test
-  # test do
-  #   json_text = shell_output("#{bin}/az cloud show --name AzureCloud")
-  #   azure_cloud = JSON.parse(json_text)
-  #   assert_equal azure_cloud["name"], "AzureCloud"
-  #   assert_equal azure_cloud["endpoints"]["management"], "https://management.core.windows.net/"
-  #   assert_equal azure_cloud["endpoints"]["resourceManager"], "https://management.azure.com/"
-  # end
-
-  #jrnl test
-  # test do
-  #   (testpath/"write_journal.sh").write <<~EOS
-  #     #!/usr/bin/expect -f
-  #     set timeout -1
-  #     spawn #{bin}/jrnl today: Wrote this fancy test.
-  #     expect -exact "Path to your journal file (leave blank for ~/journal.txt):"
-  #     send -- "#{testpath}/journal\n"
-  #     expect -exact "Enter password for journal (leave blank for no encryption): "
-  #     send -- "Homebrew\n"
-  #     expect "Do you want to store the password in your keychain?"
-  #     send -- "N\n"
-  #     expect -exact "Journal will be encrypted."
-  #     expect "Entry added to default journal"
-  #     expect eof
-  #   EOS
-  #   chmod 0755, testpath/"write_journal.sh"
-
-  #   system "./write_journal.sh"
-  #   assert_predicate testpath/"journal", :exist?
-  #   assert_predicate testpath/".jrnl_config", :exist?
-  # end
+ 
+  test do
+    output = shell_output("#{bin}/mccl 2>&1", 1)
+    assert_match "Please add credential information", output
+  end
 end
