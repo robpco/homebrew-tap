@@ -7,7 +7,7 @@ class Terraform < Formula
   bottle :unneeded
 
   def install
-    system "./terraform-install.sh", "-c", "-i 0.11.8"
+    system "./terraform-install.sh", "-c", "-i", "0.11.8"
     bin.install "./terraform"
   end
 
