@@ -13,8 +13,7 @@ class Packer < Formula
   end
 
   test do
-    output = shell_output("#{bin}/packer version 2>&1", 1)
-    assert_match "Packer v1.2.5", output
+    system bin/"packer", "version"
   end
 
 end
