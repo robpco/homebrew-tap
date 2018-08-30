@@ -7,7 +7,7 @@ class Mcc < Formula
   version "0.9.8"
   sha256 "ec1f0293861960814bd5ec99ee1b9df5c0a7685ea5c3c7c5173248a488784b37"
 
-  depends_on "python3" if OS.mac?
+  depends_on "python3"
 
   bottle do
     root_url "https://iac.sh/brew-bottles"
@@ -83,11 +83,6 @@ class Mcc < Formula
     sha256 "ec22d826a36ed72a7358ff3fe56cbd4ba69dd7a6718ffd450ff0e9df7a47ce6a"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ef/1d/201c13e353956a1c840f5d0fbf0461bd45bbd678ea4843ebf25924e8984c/setuptools-40.2.0.zip"
-    sha256 "47881d54ede4da9c15273bac65f9340f8929d4f0213193fa7894be384f2dcfa6"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
@@ -104,16 +99,11 @@ class Mcc < Formula
   end
 
   def install
-    # original method - defaults to system python on linux
-    # virtualenv_install_with_resources
-    # new method - try to force py3 on linux
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources
-    venv.pip_install_and_link buildpath
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
  
   test do
-    output = shell_output("#{bin}/mccl 2>&1", 1)
-    assert_match "Please add credential information", output
+    system bin/"mccl"
   end
 end
