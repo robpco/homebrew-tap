@@ -1,19 +1,47 @@
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
-  url "https://github.com/robertpeteuil/packer-installer/archive/v1.3.2.tar.gz"
+  url "https://github.com/robertpeteuil/packer-installer/archive/v1.3.2.tar.gz" if OS.linux?
+  sha256 "4733df392f779c670619700eeb61d951e2f6e5bbbd553638493ff224c2c4bb7e" if OS.linux?
+  # on macOS - download 32_bit version directly
+  url "https://releases.hashicorp.com/packer/1.2.5/packer_1.2.5_darwin_386.zip" if (OS.mac? && CPU.is_32_bit?)
+  sha256 "23c0f6f0e5d74bb4b7ba52e9239f744a8a11c8c36d5a4faf068d9dc60dce021b" if (OS.mac? && CPU.is_32_bit?)
+  # on macOS - download 64_bit version directly
+  url "https://releases.hashicorp.com/packer/1.2.5/packer_1.2.5_darwin_amd64.zip" if (OS.mac? && CPU.is_64_bit?)
+  sha256 "3d546eff8179fc0de94ad736718fdaebdfc506536203eade732d9d218fbb347c" if (OS.mac? && CPU.is_64_bit?)
   version "1.2.5"
-  sha256 "4733df392f779c670619700eeb61d951e2f6e5bbbd553638493ff224c2c4bb7e"
 
   bottle :unneeded
 
   def install
-    system "./packer-install.sh", "-c", "-i", "1.2.5"
+    if OS.linux?
+      system "./packer-install.sh", "-c", "-i", "1.2.5"
+    end
     bin.install "./packer"
   end
 
   test do
-    system bin/"packer", "version"
+    minimal = testpath/"minimal.json"
+    minimal.write <<~EOS
+      {
+        "builders": [{
+          "type": "amazon-ebs",
+          "region": "us-east-1",
+          "source_ami": "ami-59a4a230",
+          "instance_type": "m3.medium",
+          "ssh_username": "ubuntu",
+          "ami_name": "homebrew packer test  {{timestamp}}"
+        }],
+        "provisioners": [{
+          "type": "shell",
+          "inline": [
+            "sleep 30",
+            "sudo apt-get update"
+          ]
+        }]
+      }
+    EOS
+    system "#{bin}/packer", "validate", minimal
   end
 
 end
