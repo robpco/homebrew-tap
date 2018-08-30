@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.2.tar.gz" if OS.linux?
-  sha256 "ea374dba5eaf4c078f1f1c01fca9dacba3da7f7daf952ceb249c6b6fc50eb92a" if OS.linux?
+  url "https://github.com/robertpeteuil/terraform-installer/archive/v1.3.3.tar.gz" if OS.linux?
+  sha256 "f4a1824c81354a6832b21703c77f4b8a5bf7b39a7c8bd18a8afe826d7165ed70" if OS.linux?
   # on macOS - download directly - installer not required as amd_64 is only version available
   url "https://releases.hashicorp.com/terraform/0.11.8/terraform_0.11.8_darwin_amd64.zip" if OS.mac?
   sha256 "98c168b06e8b4058c66e044e3744d49956ce7bc3664dc1679a33f8fffc84564d" if OS.mac?
