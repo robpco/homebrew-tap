@@ -18,6 +18,12 @@ brew install robpco/tap/mcc
 brew install robpco/tap/sysis
 ```
 
+Alternatively, this utility can be executed without installation with the command:
+
+```bash
+curl -s iac.sh/sysis | sh
+```
+
 ## ALTERNATE INSTALLERS
 
 ### terraform - tool to build, change, and version infrastructure
