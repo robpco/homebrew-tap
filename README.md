@@ -28,11 +28,21 @@ curl -s iac.sh/sysis | sh
 
 ### terraform - tool to build, change, and version infrastructure
 
+An alternative to the official brew `terraform` formula which compiles from source and therefore requires `go` and `gox`
+
+- On macOS, it downloads the binary directly from Hashicorp's server
+- On Linux, it runs the installer from [https://github.com/robertpeteuil/terraform-installer](https://github.com/robertpeteuil/terraform-installer)
+
 ```bash
 brew install robpco/tap/terraform
 ```
 
 ### packer - tool for creating identical machine images for multiple platforms
+
+An alternative to the official brew `packer` formula which compiles from source and therefore requires `go` and `gox`
+
+- On macOS, it downloads the binary directly from Hashicorp's server
+- On Linux, it runs the installer from [https://github.com/robertpeteuil/packer-installer](https://github.com/robertpeteuil/packer-installer)
 
 ```bash
 brew install robpco/tap/packer
