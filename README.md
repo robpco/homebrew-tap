@@ -18,7 +18,7 @@ brew install robpco/tap/mcc
 brew install robpco/tap/sysis
 ```
 
-Alternatively, this utility can be executed without installation with the command:
+Alternatively, execute utility without installation:
 
 ```bash
 curl -s iac.sh/sysis | sh
@@ -26,25 +26,21 @@ curl -s iac.sh/sysis | sh
 
 ## ALTERNATE INSTALLERS
 
-### terraform - tool to build, change, and version infrastructure
+### [terraform](https://www.terraform.io/) - alternative to official brew `terraform` formula
 
-An alternative to the official brew `terraform` formula
-
-- Doesn't require that `go` and `gox` are installed (the official installer uses these to compile from source)
-- On macOS, it downloads the binary directly from Hashicorp's server
-- On Linux, it runs the installer from [https://github.com/robertpeteuil/terraform-installer](https://github.com/robertpeteuil/terraform-installer)
+- Doesn't require `go` and `gox` (unlike official installer)
+- macOS - downloads binary directly from Hashicorp
+- Linux - runs installer from [https://github.com/robertpeteuil/terraform-installer](https://github.com/robertpeteuil/terraform-installer)
 
 ```bash
 brew install robpco/tap/terraform
 ```
 
-### packer - tool for creating identical machine images for multiple platforms
+### [packer](https://www.packer.io/) - alternative to official brew `packer` formula
 
-An alternative to the official brew `packer` formula
-
-- Doesn't require that `go` and `gox` are installed (the official installer uses these to compile from source)
-- On macOS, it downloads the binary directly from Hashicorp's server
-- On Linux, it runs the installer from [https://github.com/robertpeteuil/packer-installer](https://github.com/robertpeteuil/packer-installer)
+- Doesn't require `go` and `gox` (unlike official installer)
+- macOS - downloads binary directly from Hashicorp
+- Linux - runs installer from [https://github.com/robertpeteuil/packer-installer](https://github.com/robertpeteuil/packer-installer)
 
 ```bash
 brew install robpco/tap/packer
