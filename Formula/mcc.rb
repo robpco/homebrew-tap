@@ -15,6 +15,7 @@ class Mcc < Formula
     cellar :any_skip_relocation if OS.linux?
     sha256 "a164b2eff6faa3d70df69bc62b49810ae4b97bb782f91926226715ddecd52ceb" => :sierra
     sha256 "97cf949a15448280e491766d5ced0e5ebee3ec81fa180e8f069b2ded2d752144" => :high_sierra
+    sha256 "e8cb0806b662a3f54fc36dd2fae8850ca08496b856fb50b656624d203ed09d33" => :mojave
     sha256 "614cf15cb8fb8daa8ef92e307aeaf1da3b9e8034ca1af688836a0f28c9221c3a" => :x86_64_linux
   end
 
