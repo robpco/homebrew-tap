@@ -5,7 +5,7 @@ class Terraform < Formula
   sha256 "a1c32fa96227499d30042a851f34e92e648b8965d600f81a87dc9a5560b01c34" if OS.linux?
   # on macOS - download directly - installer not required as amd_64 is only version available
   url "https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_darwin_amd64.zip" if OS.mac?
-  sha256 "56b3b0313c41022e76e84f3dbf5045181f4fe3fc1005909a1cc97e6928bad35e" if OS.mac?
+  sha256 "e9988443da39e5d81a5f7f1b6a5d97b25e2a1151d9be76cdc2e380df97e57856" if OS.mac?
   version "0.11.13"
 
   bottle :unneeded
