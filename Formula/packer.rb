@@ -1,8 +1,8 @@
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
-  url "https://github.com/robertpeteuil/packer-installer/archive/v1.5.0.tar.gz" if OS.linux?
-  sha256 "22ef75c1f5a8878acb9aed4cb4ba71a147fc4f6be4110577e0a457e359af04ea" if OS.linux?
+  url "https://github.com/robertpeteuil/packer-installer/archive/v1.5.5.tar.gz" if OS.linux?
+  sha256 "d0d648fd4043d43cd70417493e5c766489a297cdbe614160b3a93369280b88e7" if OS.linux?
   # on macOS - download 32_bit version directly
   url "https://releases.hashicorp.com/packer/1.7.2/packer_1.7.2_darwin_386.zip" if (OS.mac? && Hardware::CPU.is_32_bit?)
   sha256 "7186950d5bc1e99451cdca8c590449c4e4c7a1c22c555916cbde5e621af37872" if (OS.mac? && Hardware::CPU.is_32_bit?)
