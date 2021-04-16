@@ -7,17 +7,17 @@ class Mcc < Formula
   version "0.9.8"
   sha256 "ec1f0293861960814bd5ec99ee1b9df5c0a7685ea5c3c7c5173248a488784b37"
 
-  depends_on "python3"
-
   bottle do
     root_url "https://iac.sh/brew-bottles"
     cellar :any if OS.mac?
     cellar :any_skip_relocation if OS.linux?
-    sha256 "a164b2eff6faa3d70df69bc62b49810ae4b97bb782f91926226715ddecd52ceb" => :sierra
-    sha256 "97cf949a15448280e491766d5ced0e5ebee3ec81fa180e8f069b2ded2d752144" => :high_sierra
-    sha256 "e8cb0806b662a3f54fc36dd2fae8850ca08496b856fb50b656624d203ed09d33" => :mojave
-    sha256 "614cf15cb8fb8daa8ef92e307aeaf1da3b9e8034ca1af688836a0f28c9221c3a" => :x86_64_linux
+    sha256 sierra:       "a164b2eff6faa3d70df69bc62b49810ae4b97bb782f91926226715ddecd52ceb"
+    sha256 high_sierra:  "97cf949a15448280e491766d5ced0e5ebee3ec81fa180e8f069b2ded2d752144"
+    sha256 mojave:       "e8cb0806b662a3f54fc36dd2fae8850ca08496b856fb50b656624d203ed09d33"
+    sha256 x86_64_linux: "614cf15cb8fb8daa8ef92e307aeaf1da3b9e8034ca1af688836a0f28c9221c3a"
   end
+
+  depends_on "python3"
 
   resource "apache-libcloud" do
     url "https://files.pythonhosted.org/packages/2a/b9/dbc5ef54d9b5fd5759a483b5cb7404e470ce4dbe7c944416df346cde8ff5/apache-libcloud-2.3.0.tar.gz"
@@ -102,7 +102,7 @@ class Mcc < Formula
   def install
     virtualenv_install_with_resources
   end
- 
+
   test do
     system bin/"mccl"
   end
