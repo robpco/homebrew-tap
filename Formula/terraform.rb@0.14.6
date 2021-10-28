@@ -8,8 +8,6 @@ class Terraform < Formula
   sha256 "126e1c9e058f12c247a194db5a9567e59ec755cbc0211cd5d58c8b7d37412b2c" if OS.mac?
   version "0.14.6"
 
-  bottle :unneeded
-
   def install
     if OS.linux?
       system "./terraform-install.sh", "-c", "-i", "0.14.6"

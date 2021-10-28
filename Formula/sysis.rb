@@ -8,8 +8,6 @@ class Sysis < Formula
 
   head "https://github.com/robertpeteuil/sysis.git"
   
-  bottle :unneeded
-
   def install
     bin.install "./sysis"
   end

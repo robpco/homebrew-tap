@@ -11,8 +11,6 @@ class Packer < Formula
   sha256 "2dd688672157eed5d9f5126b1dd160862926ab698dc91e4ffb5a7fc2deb0b037" if (OS.mac? && Hardware::CPU.is_64_bit?)
   version "1.7.2"
 
-  bottle :unneeded
-
   def install
     if OS.linux?
       system "./packer-install.sh", "-c", "-i", "1.7.2"
