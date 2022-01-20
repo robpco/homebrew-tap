@@ -4,16 +4,16 @@ class Packer < Formula
   url "https://github.com/robertpeteuil/packer-installer/archive/v1.5.5.tar.gz" if OS.linux?
   sha256 "d0d648fd4043d43cd70417493e5c766489a297cdbe614160b3a93369280b88e7" if OS.linux?
   # on macOS - download 32_bit version directly
-  url "https://releases.hashicorp.com/packer/1.7.9/packer_1.7.9_darwin_386.zip" if (OS.mac? && Hardware::CPU.is_32_bit?)
-  sha256 "f2763597618eaebe116f954f03de6b422eb7f92f51d0bb3375da584ba008410f" if (OS.mac? && Hardware::CPU.is_32_bit?)
+  url "https://releases.hashicorp.com/packer/1.7.8/packer_1.7.8_darwin_386.zip" if (OS.mac? && Hardware::CPU.is_32_bit?)
+  sha256 "c3f742145d5f063bab688d656ab3f16d07751dd06ae0ee077289f4e55284c6ae" if (OS.mac? && Hardware::CPU.is_32_bit?)
   # on macOS - download 64_bit version directly
-  url "https://releases.hashicorp.com/packer/1.7.9/packer_1.7.9_darwin_amd64.zip" if (OS.mac? && Hardware::CPU.is_64_bit?)
-  sha256 "d7276d02d5ef542f86d4e2ab0c4b3a2333b4f7519b0f48d8092f9a27aef1f459" if (OS.mac? && Hardware::CPU.is_64_bit?)
-  version "1.7.9"
+  url "https://releases.hashicorp.com/packer/1.7.8/packer_1.7.8_darwin_amd64.zip" if (OS.mac? && Hardware::CPU.is_64_bit?)
+  sha256 "f8abe5d8660be2e6bea04bbb165ede4026e66f2f48ae5f076f9ea858699357ae" if (OS.mac? && Hardware::CPU.is_64_bit?)
+  version "1.7.8"
 
   def install
     if OS.linux?
-      system "./packer-install.sh", "-c", "-i", "1.7.9"
+      system "./packer-install.sh", "-c", "-i", "1.7.8"
     end
     bin.install "./packer"
   end
