@@ -4,13 +4,13 @@ class Terraform < Formula
   url "https://github.com/robertpeteuil/terraform-installer/archive/v1.5.1.tar.gz" if OS.linux?
   sha256 "a1c32fa96227499d30042a851f34e92e648b8965d600f81a87dc9a5560b01c34" if OS.linux?
   # on macOS - download directly - installer not required as amd_64 is only version available
-  url "https://releases.hashicorp.com/terraform/1.8.2/terraform_1.8.2_darwin_amd64.zip" if OS.mac?
-  sha256 "a71ada335aba64ac1851ffbb2cf8f727a06013d02474dd70c4571f585b1fe522" if OS.mac?
-  version "1.8.2"
+  url "https://releases.hashicorp.com/terraform/1.8.1/terraform_1.8.1_darwin_amd64.zip" if OS.mac?
+  sha256 "89aace89147ca00d5200282aa766866e32268e191d97aceca7629fc2379aaab9" if OS.mac?
+  version "1.8.1"
 
   def install
     if OS.linux?
-      system "./terraform-install.sh", "-c", "-i", "1.8.2"
+      system "./terraform-install.sh", "-c", "-i", "1.8.1"
     end
     bin.install "./terraform"
   end
